@@ -42,6 +42,9 @@ app.get("/:shortened", async (req, res) => {
     res.status(404).send("Shortened URL not found");
 });
 
+app.get("*",(req,res)=>{
+    res.redirect(process.env.PREFIX);
+})
 app.listen(8080, () => {
   console.log("Listening on 8080");
 });
