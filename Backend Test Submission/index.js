@@ -34,7 +34,6 @@ app.post("/shorten",async (req,res)=>{
 });
 
 app.get("/:shortened", async (req, res) => {
-    console.log(req.params.shortened);
     const shortenedUrl = `${process.env.PREFIX}/${req.params.shortened}`;
     const url = await Url.findOne({ shortenedUrl: shortenedUrl });
     if (url) {
