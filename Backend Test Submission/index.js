@@ -6,6 +6,11 @@ require("dotenv").config();
 const Url=require("./model/url.js");
 const crypto = require("crypto");
 
+const cors = require("cors");
+
+app.use(cors());
+app.use(express.json());
+
 // connect with mongoDB Atlas
 const mongoConnect = require("./init.js");
 mongoConnect(process.env.MONGODB_URI)
