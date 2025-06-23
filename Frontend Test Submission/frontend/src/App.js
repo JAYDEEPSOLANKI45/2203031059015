@@ -12,26 +12,20 @@ function App() {
     setError("");
     setShortenedUrl("");
     setLoading(true);
-
     if (!originalUrl) {
-      setError("Please enter a URL.");
+      setError("Please enter a URL here.");
       setLoading(false);
       return;
     }
-
     try {
       const response = await fetch("http://localhost:8080/shorten", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ url: originalUrl }),
       });
-
       if (!response.ok) {
         throw new Error("Failed to shorten URL. Please try again.");
       }
-
       const data = await response.json();
       setShortenedUrl(data.shortenedUrl.shortenedUrl);
     } catch (err) {
@@ -45,13 +39,11 @@ function App() {
     <div className="App">
       <header className="App-header">
         <form onSubmit={handleSubmit}>
-          <input
-            type="url"
+          <input type="url"
             value={originalUrl}
             onChange={(e) => setOriginalUrl(e.target.value)}
-            placeholder="Enter URL to shorten"
-            style={{ width: "300px", padding: "10px", marginRight: "10px" }}
-          />
+            placeholder="Enter URL to shorten it"
+            style={{ width: "300px", padding: "10px", marginRight: "10px" }}/>
           <button type="submit" disabled={loading} style={{ padding: "10px" }}>
             {loading ? "Shortening..." : "Shorten"}
           </button>
