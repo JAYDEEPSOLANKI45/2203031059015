@@ -7,7 +7,7 @@
     "start": "concurrently \"npm:start-backend\" \"npm:start-frontend\"",
     "start-backend": "cd \"Backend Test Submission\" && node index.js",
     "start-frontend": "cd \"Frontend Test Submission\" && cd \"frontend\" && npm start",
-    "install-all": "npm install && cd \"Backend Test Submission\" && npm install && cd .. && cd \"Frontend Test Submission\\frontend\" && npm install"
+    "install-all": "npm install && cd \"Backend Test Submission\" && npm install && cd .. && cd \"Frontend Test Submission\" && cd \"frontend\" && npm install"
   },
   "author": "",
   "license": "ISC",
