@@ -34,6 +34,7 @@ app.post("/shorten",async (req,res)=>{
 });
 
 app.get("/:shortened", async (req, res) => {
+    console.log(req.params.shortened);
     const shortenedUrl = `${process.env.PREFIX}/${req.params.shortened}`;
     const url = await Url.findOne({ shortenedUrl: shortenedUrl });
     if (url) {
@@ -42,9 +43,6 @@ app.get("/:shortened", async (req, res) => {
     res.status(404).send("Shortened URL not found");
 });
 
-app.get("*",(req,res)=>{
-    res.redirect(process.env.PREFIX);
-})
 app.listen(8080, () => {
   console.log("Listening on 8080");
 });
